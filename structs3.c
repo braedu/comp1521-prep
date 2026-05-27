@@ -6,7 +6,7 @@ struct Student {
     float grade;
 };
 
-printStudent(struct Student s);
+void printStudent(struct Student s);
 struct Student topStudent(struct Student students[], int size);
 
 int main(void) {
@@ -31,9 +31,9 @@ int main(void) {
 
 void printStudent(struct Student s) {
 
-    printf("The student's name is %s\n", s.name);
-    printf("The student's age is %d\n", s.age);
-    printf("The student's grade is %f\n", s.grade);
+    printf("The top student's name is %s\n", s.name);
+    printf("The top student's age is %d\n", s.age);
+    printf("The top student's grade is %f\n", s.grade);
 
 }
 
@@ -46,6 +46,11 @@ struct Student topStudent(struct Student students[], int size) {
             } else {
                 temp = i + 1;
             }
+    }
+    for (int j = 1; j < size; j++) {
+        if (students[temp].grade < students[0].grade) {
+            temp = 0;
+        }
     }
     return students[temp];
 }
