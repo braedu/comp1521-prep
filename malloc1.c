@@ -8,6 +8,10 @@ int main(void) {
     scanf("%d", &num);
 
     int *array = malloc(num * sizeof(int));
+    if (array == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
 
     for (int i = 0; i < num; i++) {
         printf("Enter the number for position %d\n", i + 1);
@@ -18,6 +22,8 @@ int main(void) {
     for (int i = 0; i < num; i++) {
         printf("%d\n", array[i]);
     }
+
+    free(array);
 
     return 0;
 }
